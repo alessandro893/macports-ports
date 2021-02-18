@@ -364,7 +364,8 @@ variant nonfree description {enable nonfree code, libraries and binaries will no
 }
 
 variant libzimg description {Enable z.lib, needed for zscale filter (sdr-hdr conversions, tonemapping} {
-    configure.args-append   --enable-libzimg
+    configure.args-append   --enable-libzimg \
+                            --enable-zlib
     depends_lib-append      port:zimg
 }
 
