@@ -148,7 +148,8 @@ configure.args      --enable-swscale \
                     --disable-sdl2 \
                     --disable-securetransport \
                     --mandir=${prefix}/share/man \
-                    --enable-shared --enable-pthreads \
+                    --enable-shared \
+                    --enable-pthreads \
                     --cc=${configure.cc}
 
 
@@ -360,6 +361,11 @@ variant nonfree description {enable nonfree code, libraries and binaries will no
                             --enable-libfdk-aac
     depends_lib-append      port:libfdk-aac
     license                 Restrictive
+}
+
+variant libzimg description {Enable z.lib, needed for zscale filter (sdr-hdr conversions, tonemapping} {
+    configure.args-append   --enable-libzimg
+    depends_lib-append      port:zimg
 }
 
 if {[variant_isset nonfree]} {
